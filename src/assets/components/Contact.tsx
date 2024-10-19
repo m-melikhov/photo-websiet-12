@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import axios from 'axios';
 import '../styles/Contact.css';
 
 interface ContactForm {
@@ -30,7 +29,7 @@ const Contact: React.FC = () => {
 
     try {
       const response = await fetch(
-        'https://photo-websiet.vercel.app/api/send-message',
+        'https://photo-websiet.vercel.app/api/send-message', // Оновлений URL для API
         {
           method: 'POST',
           headers: {
