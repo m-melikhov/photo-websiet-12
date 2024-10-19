@@ -1,0 +1,13 @@
+.app {
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px; /* Відступи для мобільних */
+}
+
+@media (max-width: 768px) {
+  .app {
+    padding: 0 10px;
+  }
+}

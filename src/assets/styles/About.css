@@ -1,0 +1,42 @@
+.about {
+  display: flex;
+  align-items: center;
+  padding: 50px 20px;
+  gap: 20px;
+}
+
+.about-content {
+  display: flex;
+  gap: 20px;
+}
+
+.about-portrait {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.about-text h2 {
+  font-size: 2rem;
+}
+
+.about-text p {
+  font-size: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .about {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-portrait {
+    width: 150px;
+    height: 150px;
+  }
+
+  .about-text h2 {
+    font-size: 1.8rem;
+  }
+}

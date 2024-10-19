@@ -1,0 +1,39 @@
+.portfolio {
+  padding: 50px 20px;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.portfolio-category h3 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.portfolio-image {
+  width: 100%;
+  height: 150px; /* Або інша висота, яку вам потрібно */
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Для збереження пропорцій зображень */
+  border-radius: 8px; /* Округлі кути */
+}
+
+@media (max-width: 1024px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+}

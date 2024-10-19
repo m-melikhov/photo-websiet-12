@@ -1,0 +1,44 @@
+.header {
+  background-color: #fff;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.header-content h1 {
+  font-size: 3rem;
+}
+
+.header-content a {
+  text-decoration: none; /* Прибирає підкреслення */
+  color: inherit; /* Встановлює колір тексту на колір батьківського елемента */
+  transition: color 0.3s; /* Додає плавний перехід для кольору */
+}
+
+.header-content a:hover {
+  color: #007bff; /* Змінює колір при наведенні (можете вибрати будь-який) */
+}
+
+.nav a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .header-content h1 {
+    font-size: 2rem;
+  }
+
+  .nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+}
