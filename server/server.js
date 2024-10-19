@@ -13,6 +13,7 @@ const TELEGRAM_TOKEN = '7768657820:AAH0u708NfYv2oFxmGd8tQvjTw0Jqte75PQ';
 const CHAT_ID = '-4585764361';  // ID чату, який ви отримали раніше
 
 app.post('/send-message', async (req, res) => {
+  console.log('Received request:', req.body); // Додайте цю строку
   const { name, phone, telegram, message } = req.body;
 
   const text = `Ім'я: ${name}\nТелефон: ${phone}\nTelegram: ${telegram}\nПовідомлення: ${message}`;

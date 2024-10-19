@@ -29,13 +29,16 @@ const Contact: React.FC = () => {
     console.log('Submitting form with data:', form);
 
     try {
-      const response = await fetch('https://your-server-url/send-message', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(form),
-      });
+      const response = await fetch(
+        'https://photo-websiet.vercel.app/send-message',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(form),
+        }
+      );
 
       // Debugging response status and body
       console.log('Response status:', response.status);
