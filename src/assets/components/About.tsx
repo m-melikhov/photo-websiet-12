@@ -14,7 +14,7 @@ const About: React.FC = () => {
           className="about-portrait"
         />
         <div className="about-text">
-          <h2>About Me</h2>
+          <h2>Про мене</h2>
           <p>
             I’m a professional photographer with over 10 years of experience
             capturing life’s most precious moments. My work spans across
