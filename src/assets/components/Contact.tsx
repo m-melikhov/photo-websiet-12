@@ -30,7 +30,7 @@ const Contact: React.FC = () => {
 
     try {
       const response = await fetch(
-        'https://photo-websiet.vercel.app/send-message',
+        'https://photo-websiet.vercel.app/api/send-message',
         {
           method: 'POST',
           headers: {
