@@ -1,19 +1,25 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import axios from 'axios';
-import cors from 'cors'; // Додайте цю строку
+import cors from 'cors';
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-app.use(cors()); // Додайте цю строку, щоб дозволити CORS
+// Налаштування CORS
+app.use(cors({
+  origin: 'https://photo-websiet.vercel.app', // Вкажіть URL вашого фронтенда
+  methods: ['POST'],
+  allowedHeaders: ['Content-Type'],
+}));
+
 app.use(bodyParser.json());
 
 const TELEGRAM_TOKEN = '7768657820:AAH0u708NfYv2oFxmGd8tQvjTw0Jqte75PQ';
 const CHAT_ID = '-4585764361';  // ID чату, який ви отримали раніше
 
-app.post('/send-message', async (req, res) => {
-  console.log('Received request:', req.body); // Додайте цю строку
+app.post('/api/send-message', async (req, res) => {
+  console.log('Received request:', req.body); // Логування запиту
   const { name, phone, telegram, message } = req.body;
 
   const text = `Ім'я: ${name}\nТелефон: ${phone}\nTelegram: ${telegram}\nПовідомлення: ${message}`;
@@ -35,6 +41,7 @@ app.post('/send-message', async (req, res) => {
   }
 });
 
+// Запуск сервера
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
