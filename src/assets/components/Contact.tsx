@@ -29,7 +29,7 @@ const Contact: React.FC = () => {
 
     try {
       const response = await fetch(
-        'https://photo-websiet.vercel.app/api/send-message', // Оновлений URL для API
+        '/api/send-message', // Оновлений URL для API
         {
           method: 'POST',
           headers: {
