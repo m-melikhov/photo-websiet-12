@@ -2,10 +2,10 @@ import React from 'react';
 
 const Personal: React.FC = () => {
   return (
-    <section id="personal">
-      <h2>Особисті проекти</h2>
-      {/* Тут можуть бути фото або інша інформація */}
-    </section>
+    <div>
+      <h2>Особисті Проекти</h2>
+      {/* Додайте свій контент тут */}
+    </div>
   );
 };
 

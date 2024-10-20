@@ -20,15 +20,19 @@ const App: React.FC = () => {
             path="/"
             element={
               <>
-                <Portfolio />
+                <Portfolio showImages={true} />
                 <About />
                 <Contact />
               </>
             }
           />
+          {/* <Route
+            path="/"
+            element={<Portfolio />}
+          /> */}
           <Route
             path="/portfolio"
-            element={<Portfolio />}
+            element={<Portfolio showImages={false} />}
           >
             <Route
               path="personal"

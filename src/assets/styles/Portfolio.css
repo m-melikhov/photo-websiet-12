@@ -8,6 +8,16 @@
   gap: 20px;
 }
 
+.portfolio-category a {
+  text-decoration: none; /* Зняти підкреслення */
+  color: inherit; /* Використовувати колір батьківського елемента */
+}
+
+/* Якщо хочете задати власний колір */
+.portfolio-category a:hover {
+  color: #ff0000; /* Зміна кольору при наведенні (можете змінити на потрібний вам) */
+}
+
 .portfolio-category h3 {
   text-align: center;
   font-size: 1.5rem;

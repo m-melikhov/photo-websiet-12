@@ -1,7 +1,5 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React, { useState, useEffect } from 'react';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import '../styles/Portfolio.css';
 
 // Імпорт зображень
@@ -21,25 +19,29 @@ interface Category {
   images: string[];
 }
 
+interface PortfolioProps {
+  showImages: boolean; // Доданий прапорець
+}
+
 const categories: Category[] = [
   {
     name: 'Personal',
-    link: '/personal',
+    link: 'personal',
     images: [personal1, personal2, personal3],
   },
   {
     name: 'For Brands',
-    link: '/for-brands',
+    link: 'for-brands',
     images: [brand1, brand2, brand3],
   },
   {
     name: 'Family',
-    link: '/family',
+    link: 'family',
     images: [family1, family2, family3],
   },
 ];
 
-const Portfolio: React.FC = () => {
+const Portfolio: React.FC<PortfolioProps> = ({ showImages }) => {
   const [currentImages, setCurrentImages] = useState<number[]>([0, 0, 0]);
 
   useEffect(() => {
@@ -67,19 +69,22 @@ const Portfolio: React.FC = () => {
             key={category.name}
             className="portfolio-category"
           >
-            <h3>{category.name}</h3>
-            <Link to={category.link}>
-              <div className="portfolio-image">
-                <img
-                  src={category.images[currentImages[index]]}
-                  alt={category.name}
-                  className="image-placeholder"
-                />
-              </div>
+            <Link to={`/portfolio/${category.link}`}>
+              <h3>{category.name}</h3>
+              {showImages && (
+                <div className="portfolio-image">
+                  <img
+                    src={category.images[currentImages[index]]}
+                    alt={category.name}
+                    className="image-placeholder"
+                  />
+                </div>
+              )}
             </Link>
           </div>
         ))}
       </div>
+      <Outlet />
     </section>
   );
 };
