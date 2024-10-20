@@ -45,7 +45,7 @@ const Contact: React.FC = () => {
       console.log('Response body:', responseBody);
 
       if (response.ok) {
-        alert('Message sent!');
+        alert('Повідомлення надіслано!');
         setForm({ name: '', phone: '', telegram: '', message: '' });
       } else {
         alert(
