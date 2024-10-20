@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Link } from 'react-router-dom';
 import '../styles/Portfolio.css';
+import axios from 'axios';
 
 // Імпорт зображень
 import personal1 from '../styles/images/personal1.jpg';
@@ -39,8 +40,29 @@ const categories: Category[] = [
   },
 ];
 
+interface PortfolioItem {
+  id: number;
+  title: string;
+  image: {
+    url: string;
+  };
+}
+
 const Portfolio: React.FC = () => {
   const [currentImages, setCurrentImages] = useState<number[]>([0, 0, 0]);
+  const [portfolio, setPortfolio] = useState<PortfolioItem[]>([]);
+
+  useEffect(() => {
+    const fetchPortfolio = async () => {
+      try {
+        const response = await axios.get('http://localhost:1337/portfolio');
+        setPortfolio(response.data);
+      } catch (error) {
+        console.error('Error fetching portfolio:', error);
+      }
+    };
+    fetchPortfolio();
+  }, []);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -77,6 +99,18 @@ const Portfolio: React.FC = () => {
                 />
               </div>
             </Link>
+          </div>
+        ))}
+      </div>
+      <div className="portfolio-external">
+        <h3>Додаткові Проекти</h3>
+        {portfolio.map((item) => (
+          <div key={item.id}>
+            <h4>{item.title}</h4>
+            <img
+              src={item.image.url}
+              alt={item.title}
+            />
           </div>
         ))}
       </div>
