@@ -1,0 +1,44 @@
+.personal-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 колонки */
+  grid-gap: 10px; /* Відстань між зображеннями */
+  padding: 20px;
+}
+
+.grid-item {
+  max-width: 1120px;
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+}
+
+/* Визначаємо специфічні розміри для кожного зображення */
+.grid-item-1 {
+  grid-column: span 2; /* Займає 2 колонки */
+  grid-row: span 1; /* Займає 2 рядки */
+}
+
+.grid-item-2 {
+  grid-column: span 1; /* Займає 1 колонку */
+  grid-row: span 1; /* Займає 1 рядок */
+}
+
+.grid-item-3 {
+  grid-column: span 1; /* Займає 1 колонку */
+  grid-row: span 2; /* Займає 2 рядки */
+}
+
+.grid-item-4 {
+  grid-column: span 2; /* Займає 2 колонки */
+  grid-row: span 1; /* Займає 1 рядок */
+}
+
+.grid-item-5 {
+  grid-column: span 3; /* Займає всі 3 колонки */
+  grid-row: span 1; /* Займає 1 рядок */
+}
+
+.grid-item-6 {
+  grid-column: span 1; /* Займає 1 колонку */
+  grid-row: span 2; /* Займає 2 рядки */
+}
