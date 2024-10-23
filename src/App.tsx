@@ -32,7 +32,7 @@ const App: React.FC = () => {
           /> */}
           <Route
             path="/portfolio"
-            element={<Portfolio showImages={false} />}
+            element={<Portfolio showImages={true} />}
           >
             <Route
               path="personal"

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 import '../styles/Portfolio.css';
 
 // Імпорт зображень
@@ -43,6 +43,7 @@ const categories: Category[] = [
 
 const Portfolio: React.FC<PortfolioProps> = ({ showImages }) => {
   const [currentImages, setCurrentImages] = useState<number[]>([0, 0, 0]);
+  const location = useLocation(); // Викликаємо useLocation як функцію
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -56,6 +57,9 @@ const Portfolio: React.FC<PortfolioProps> = ({ showImages }) => {
 
     return () => clearInterval(intervalId);
   }, []);
+
+  // Перевіряємо, чи на головній сторінці портфоліо
+  const isMainPortfolioPage = location.pathname === '/portfolio';
 
   return (
     <section
@@ -71,15 +75,16 @@ const Portfolio: React.FC<PortfolioProps> = ({ showImages }) => {
           >
             <Link to={`/portfolio/${category.link}`}>
               <h3>{category.name}</h3>
-              {showImages && (
-                <div className="portfolio-image">
-                  <img
-                    src={category.images[currentImages[index]]}
-                    alt={category.name}
-                    className="image-placeholder"
-                  />
-                </div>
-              )}
+              {showImages &&
+                isMainPortfolioPage && ( // Відображаємо фото тільки на головній сторінці портфоліо
+                  <div className="portfolio-image">
+                    <img
+                      src={category.images[currentImages[index]]}
+                      alt={category.name}
+                      className="image-placeholder"
+                    />
+                  </div>
+                )}
             </Link>
           </div>
         ))}
