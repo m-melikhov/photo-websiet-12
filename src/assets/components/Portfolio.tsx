@@ -20,7 +20,7 @@ interface Category {
 }
 
 interface PortfolioProps {
-  showImages: boolean; // Доданий прапорець
+  showImages: boolean;
 }
 
 const categories: Category[] = [
@@ -43,7 +43,7 @@ const categories: Category[] = [
 
 const Portfolio: React.FC<PortfolioProps> = ({ showImages }) => {
   const [currentImages, setCurrentImages] = useState<number[]>([0, 0, 0]);
-  const location = useLocation(); // Викликаємо useLocation як функцію
+  const location = useLocation(); // Викликаємо useLocation для отримання поточного шляху
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -59,7 +59,8 @@ const Portfolio: React.FC<PortfolioProps> = ({ showImages }) => {
   }, []);
 
   // Перевіряємо, чи на головній сторінці портфоліо
-  const isMainPortfolioPage = location.pathname === '/portfolio';
+  const isMainPortfolioPage =
+    location.pathname === '/portfolio' || location.pathname === '/';
 
   return (
     <section
